@@ -1,0 +1,22 @@
+.icon-container {
+    margin: auto;
+}
+
+.icon-video {
+    width: 250px;
+    height: 250px;
+    object-fit: fill;
+}
+
+.icon-actions {
+
+}
+
+.icon-actions p {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.icon-actions p:hover {
+    color: lightblue;
+}

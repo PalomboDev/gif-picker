@@ -1,0 +1,13 @@
+* {
+    background-color: rgb(32,32,32);
+    color: #FFFFFF;
+}
+
+.layout {
+    margin: 50px;
+}
+
+.layout-title {
+    text-align: center;
+    font-size: 60px;
+}
