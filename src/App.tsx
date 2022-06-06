@@ -12,12 +12,15 @@ export default function App() {
 
     const [search, setSearch] = useQueryParam("search", StringParam);
 
+    const [loading, setLoading] = useState<boolean>(true);
+
     // MultiGifResponse States
     const [gifs, setGifs] = useState<GIF[]>([]);
-    const [pagination, setPagination] = useState<Pagination | null>(null);
-    const [meta, setMeta] = useState<Meta | null>(null);
+    // const [pagination, setPagination] = useState<Pagination | null>(null);
+    // const [meta, setMeta] = useState<Meta | null>(null);
 
     function doSearch(query: string | undefined): void {
+        setLoading(true);
         setGifs([]);
         setSearch(query ? query : undefined);
 
@@ -26,14 +29,16 @@ export default function App() {
                 if (multiGifResponse) {
                     setGifs(multiGifResponse.gifs);
 
-                    if (multiGifResponse.pagination) {
-                        setPagination(multiGifResponse.pagination);
-                    }
-
-                    if (multiGifResponse.meta) {
-                        setMeta(multiGifResponse.meta);
-                    }
+                    // if (multiGifResponse.pagination) {
+                    //     setPagination(multiGifResponse.pagination);
+                    // }
+                    //
+                    // if (multiGifResponse.meta) {
+                    //     setMeta(multiGifResponse.meta);
+                    // }
                 }
+
+                setLoading(false);
             }).catch(error => {
                 console.error(error);
             });
@@ -42,6 +47,8 @@ export default function App() {
                 if (randomGifs) {
                     setGifs(randomGifs);
                 }
+
+                setLoading(false);
             }).catch(error => {
                 console.error(error);
             });
@@ -51,6 +58,14 @@ export default function App() {
     useEffect(() => {
         doSearch(search ? search : undefined);
     }, []);
+
+    if (loading) {
+        return (
+            <Layout doSearch={() => {}}>
+                <h3>Loading...</h3>
+            </Layout>
+        );
+    }
 
     return (
         <Layout doSearch={doSearch}>

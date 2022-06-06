@@ -1,7 +1,6 @@
 .search-container {
     padding: 15px;
     text-align: center;
-    cursor: pointer;
 }
 
 .search-input {
@@ -9,6 +8,7 @@
     background-color: #FFFFFF;
     padding: 10px;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .search-button {
@@ -16,6 +16,7 @@
     background-color: #FFFFFF;
     border-radius: 5px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .clear-button {
@@ -24,4 +25,5 @@
     border-radius: 5px;
     padding: 10px;
     margin-left: 1px;
+    cursor: pointer;
 }
